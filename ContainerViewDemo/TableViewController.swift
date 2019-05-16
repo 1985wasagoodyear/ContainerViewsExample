@@ -20,10 +20,10 @@ final class TableViewController: UIViewController, TableContainerProtocol {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.tableView.delegate = self
-        self.tableView.dataSource = self
-        self.tableView.register(UITableViewCell.self,
-                                forCellReuseIdentifier: CELL_IDENTIFIER)
+        tableView.delegate = self
+        tableView.dataSource = self
+        tableView.register(UITableViewCell.self,
+                           forCellReuseIdentifier: CELL_IDENTIFIER)
     }
     
 }
@@ -31,7 +31,7 @@ final class TableViewController: UIViewController, TableContainerProtocol {
 extension TableViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         // communicate designated change
-        self.delegate.didSelectContainerOption(datums[indexPath.row])
+        delegate.didSelectContainerOption(datums[indexPath.row])
     }
 }
 

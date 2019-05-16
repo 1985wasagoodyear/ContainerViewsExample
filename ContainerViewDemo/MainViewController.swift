@@ -12,10 +12,10 @@ final class MainViewController: UIViewController {
     
     // MARK: Storyboard Outlets
     
-    @IBOutlet weak var imageContainerView: UIView!
-    @IBOutlet weak var tableContainerView: UIView!
+    @IBOutlet var imageContainerView: UIView!
+    @IBOutlet var tableContainerView: UIView!
     
-    @IBOutlet weak var swapButton: UIButton!
+    @IBOutlet var swapButton: UIButton!
     
     // MARK: Child Container ViewControllers
     
@@ -27,12 +27,12 @@ final class MainViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // connect container viewControllers to self
-        self.imageContainer = self.children.first(where: { $0 is ImageContainerProtocol }) as? ImageContainerProtocol
-        self.tableContainer = self.children.first(where: { $0 is TableContainerProtocol }) as? TableContainerProtocol
-        self.imageContainer.delegate = self
-        self.tableContainer.delegate = self
+        imageContainer = children.first(where: { $0 is ImageContainerProtocol }) as? ImageContainerProtocol
+        tableContainer = children.first(where: { $0 is TableContainerProtocol }) as? TableContainerProtocol
+        imageContainer.delegate = self
+        tableContainer.delegate = self
         
-        self.swapButton.layer.borderColor = UIColor.black.cgColor
+        swapButton.layer.borderColor = UIColor.black.cgColor
     }
 
     @IBAction func swapButtonAction(_ sender: Any) {
@@ -50,7 +50,7 @@ extension MainViewController: ContainerVCProtocol {
     
     // parent handles communication between children
     func didSelectContainerOption(_ option: String) {
-        self.imageContainer.changePicture(option)
+        imageContainer.changePicture(option)
     }
 }
 

@@ -10,9 +10,9 @@ import UIKit
 
 final class ImageViewController: UIViewController {
     
+    @IBOutlet var imageView: UIImageView!
+    
     weak var delegate: ContainerVCProtocol!
-
-    @IBOutlet weak var imageView: UIImageView!
 
 }
 
@@ -21,7 +21,7 @@ extension ImageViewController: ImageContainerProtocol {
     // change the image when the delegate tells us
     func changePicture(_ imageName: String) {
         if let image = UIImage(named: imageName) {
-            self.imageView.image = image
+            imageView.image = image
         }
     }
 }

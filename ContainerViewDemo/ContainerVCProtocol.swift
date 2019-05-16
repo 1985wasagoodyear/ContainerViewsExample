@@ -6,13 +6,13 @@
 //  Copyright © 2018 Kevin Yu. All rights reserved.
 //
 
-import UIKit
+import Foundation
 
 // ************************
 // parent must adopt:
 // ************************
 
-protocol ContainerVCProtocol: class {
+protocol ContainerVCProtocol: AnyObject {
     func didSelectContainerOption(_ option: String)
 }
 
@@ -20,11 +20,11 @@ protocol ContainerVCProtocol: class {
 // children must adopt:
 // ************************
 
-protocol ImageContainerProtocol: class {
+protocol ImageContainerProtocol: AnyObject {
     var delegate: ContainerVCProtocol! {get set}
     func changePicture(_ imageName: String)
 }
 
-protocol TableContainerProtocol: class {
+protocol TableContainerProtocol: AnyObject {
     var delegate: ContainerVCProtocol! {get set}
 }
